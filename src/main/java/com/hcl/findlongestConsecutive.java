@@ -24,13 +24,13 @@ public class findlongestConsecutive {
 					if (highestSubCount < tempList.size()) {   							// check if tempList is bigger than previous largest sequence of 
 						highestList = new ArrayList<List<Integer>>();					//-----	 if it is clear out list
 						highestList.add(tempList);										//-----  add the new temp list to list
-						highestSubCount = tempList.size()-1;   //-------------------save the current highest temporary list count
+						highestSubCount = tempList.size()-1;   //-------------------save the current highest temporary list count 
 					} else if (highestSubCount == tempList.size()-1) {           //-----    if current temp list is same size as previous highest sequence then add this new list
 						highestList.add(tempList);
 					} 
 					
-					tempList = new ArrayList<Integer>();
-					tempList.add(intArray.get(j).intValue());
+					tempList = new ArrayList<Integer>();    	//--- clear out temp List 
+					tempList.add(intArray.get(j).intValue());   //--- add current to new temp list 
 					
 				}
 			}
