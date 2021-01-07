@@ -10,32 +10,55 @@ public class findlongestConsecutive {
 
 		int highestSubCount = 0;
 		
-
-		List<Integer> tempList = new ArrayList<Integer>();  // list to add numbers temporarily if they are increasing and consecutive
-		List<List<Integer>> highestList = new ArrayList<List<Integer>>();  // list of list
+		// list to add numbers temporarily if they are increasing and consecutive
+		List<Integer> tempList = new ArrayList<Integer>();  
 		
-		tempList.add(intArray.get(0).intValue());  // add first item to temp list
+		// list of list
+		List<List<Integer>> highestList = new ArrayList<List<Integer>>();  
+		
+		// add first item to temp list
+		tempList.add(intArray.get(0).intValue());  
 	
 
 			for (int j = 0; j < intArray.size(); j++) {
-				if (intArray.get(j).intValue() > tempList.get((tempList.size()-1)).intValue()) {   	// if the current number is greater than the last number inserted into tempList
-					tempList.add(intArray.get(j));													// add this current number
-				} else {														//-----    if current int is less then check if
-					if (highestSubCount < tempList.size()) {   							// check if tempList is bigger than previous largest sequence of 
-						highestList = new ArrayList<List<Integer>>();					//-----	 if it is clear out list
-						highestList.add(tempList);										//-----  add the new temp list to list
-						highestSubCount = tempList.size()-1;   //-------------------save the current highest temporary list count 
-					} else if (highestSubCount == tempList.size()-1) {           //-----    if current temp list is same size as previous highest sequence then add this new list
+				
+				// if the current number is greater than the last number inserted into tempList
+				if (intArray.get(j).intValue() > tempList.get((tempList.size()-1)).intValue()) {
+					
+					// add this current number
+					tempList.add(intArray.get(j));			
+					
+				} else {														
+					
+					//-----    if current int is less then check if tempList is bigger than previous largest sequence of 
+					if (highestSubCount < tempList.size()) {   		
+						
+						//-----	 if it is clear out list
+						highestList = new ArrayList<List<Integer>>();	
+						
+						//-----  add the new temp list to list
+						highestList.add(tempList);		
+						
+						//-------------------save the current highest temporary list count 
+						highestSubCount = tempList.size()-1;  
+						
+						//-----    if current temp list is same size as previous highest sequence then add this new list
+					} else if (highestSubCount == tempList.size()-1) {           
 						highestList.add(tempList);
 					} 
 					
-					tempList = new ArrayList<Integer>();    	//--- clear out temp List 
-					tempList.add(intArray.get(j).intValue());   //--- add current to new temp list 
+					//--- clear out temp List by creating new pointer of ArrayList<Integer>
+					tempList = new ArrayList<Integer>(); 
+					
+					//--- add current integer to new temp list 
+					tempList.add(intArray.get(j).intValue());   
 					
 				}
 			}
 		
 			System.out.println("------------------------------------------------------ ");	
+			System.out.println( "Longest Increasing Consecutive Sequence has numbers that are increasing consecutively in the original array \n" );
+			
 			System.out.println("Longest Consecutive Sequence : " + highestList);
 			System.out.println("Longest Consecutive Sequence count is : " + (highestSubCount+1));
 	}

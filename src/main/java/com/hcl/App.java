@@ -11,7 +11,6 @@ public class App
 {
     public static void main( String[] args )
     {
-        //System.out.println( "Hello World!" );
     	List<Integer> nums = new ArrayList<Integer>();
     	nums.add(23);
     	nums.add(65);
