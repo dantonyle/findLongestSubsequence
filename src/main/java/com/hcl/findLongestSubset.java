@@ -37,8 +37,10 @@ public class findLongestSubset {
 			tempList.add(subSetList.get(0)); // added first value of the subset to temp list
 
 			currentLargeInt = tempList.get(0); // current largest integer is the first value of this
-
+			
+			System.out.println(subSetList);
 			if (subSetList.size() > highestSubCount) {
+			System.out.println("running subset");
 				// -------------------------------------- loop through the sub set
 				for (int j = 0; j < subSetList.size(); j++) {
 					if (subSetList.get(j).intValue() > currentLargeInt) { // if this index(intValue) is greater than my
